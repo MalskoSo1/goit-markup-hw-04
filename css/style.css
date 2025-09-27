@@ -112,14 +112,32 @@ p {
   gap: 40px;
 }
 
+.nav-item:active::after {
+  content: '';
+  border-radius: 2px;
+  width: 100%;
+  height: 4px;
+  background-color: #404bbf;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.menu-item {
+  position: relative;
+  display: block;
+}
+
 .nav-item {
   display: inline-block;
   color: #2e2f42;
   padding: 24px 0 24px 0;
+  transition: color 0.3s linear;
 }
 
 .nav-item:hover,
-.nav-item:focus {
+.nav-item:focus,
+.nav-item:active {
   color: #404bbf;
 }
 
@@ -132,6 +150,10 @@ p {
   font-style: normal;
 }
 
+.contact-link {
+  transition: color 300ms linear;
+}
+
 .contact-link:hover,
 .contact-link:focus {
   color: #404bbf;
@@ -140,8 +162,11 @@ p {
 /*================== Hero Section ==================*/
 .hero {
   background-color: #2e2f42;
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url('../images/hero/hero-image.jpg');
   text-align: center;
   padding: 188px 0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero-container {
@@ -174,6 +199,8 @@ p {
   padding: 16px 32px;
   height: 56px;
   display: block;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  transition: background-color 300ms linear;
 }
 
 .hero-button:hover,
@@ -205,6 +232,17 @@ p {
   width: calc((100% - 72px) / 4);
 }
 
+.background-svg {
+  width: 100%;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  background-color: #f4f4fd;
+  margin-bottom: 8px;
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
 .feature-text {
   font-size: 16px;
   line-height: 150%;
@@ -226,13 +264,18 @@ p {
 
 .team-member {
   width: calc((100% - 72px) / 4);
-  align-items: center;
   background-color: #ffffff;
   border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
 
 .team-info {
   padding: 32px 0;
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .team-title {
@@ -252,8 +295,31 @@ p {
   line-height: 120%;
   letter-spacing: 0.02em;
   color: #2e2f42;
-  text-align: center;
-  margin-bottom: 8px;
+}
+
+.team-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.team-icon {
+  fill: #f4f4fd;
+}
+
+.team-link:hover,
+.team-link:active {
+  background-color: #404bbf;
+}
+
+.team-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  padding: 12px;
+  transition: background-color 300ms linear;
 }
 
 .team-role {
@@ -261,7 +327,6 @@ p {
   line-height: 150%;
   letter-spacing: 0.02em;
   color: #434455;
-  text-align: center;
 }
 
 /*================== Portfolio Section ==================*/
@@ -314,7 +379,77 @@ p {
   color: #434455;
 }
 
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding-top: 40px;
+  padding-bottom: 164px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  transform: translateX(-100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.portfolio-item:hover .overlay {
+  transform: translateX(0);
+}
+
 /*================== Footer Section ==================*/
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  gap: 120px;
+}
+
+.footer-social-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer-social-links {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.footer-social-link {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  padding: 8px;
+  transition: background-color 300ms linear;
+}
+
+.footer-social-link:hover {
+  background-color: #31d0aa;
+}
+
+.footer-social-icon {
+  fill: #f4f4fd;
+}
+
 .site-footer {
   background-color: #2e2f42;
   padding: 100px 0;
@@ -342,5 +477,5 @@ p {
   line-height: 150%;
   letter-spacing: 0.02em;
   color: #f4f4fd;
-  max-width: 264px;
+  width: 264px;
 }
